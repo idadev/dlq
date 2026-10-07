@@ -1,0 +1,25 @@
+spring:
+  kafka:
+    consumer:
+      group-id: dlq-it
+      auto-offset-reset: earliest
+
+kafka:
+  dlq:
+    defaults:
+      idle-timeout: 5s
+      max-attempts: 2
+    topics:
+      orders:
+        retry-topic: orders.retry
+        dlt-topic: orders.dlq
+        parking-lot-topic: orders.parking
+      payments:
+        dlt-topic: payments.dlq
+      invoices:
+        cron: "*/2 * * * * *"
+        min-pending-messages: 2
+
+logging:
+  level:
+    org.apache.kafka: WARN
