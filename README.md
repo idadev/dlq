@@ -12,6 +12,13 @@ Le service garde les annotations Spring Kafka. La lib prend en charge le reste :
 - un message que le `@DltHandler` n'arrive pas à traiter est remis dans la DLQ pour une exécution ultérieure puis,
   après `max-attempts` échecs, déplacé dans un topic parking lot qui n'est jamais rejoué.
 
+## Documentation
+
+- [Documentation fonctionnelle](docs/documentation-fonctionnelle.md) : parcours d'un message, déclenchement,
+  parking lot, règles de gestion, démarche d'exploitation.
+- [Documentation technique](docs/documentation-technique.md) : architecture, intégration à Spring Kafka, algorithme
+  d'une exécution, garanties, référence de configuration, points d'extension, diagnostic.
+
 ## Utilisation
 
 ```xml
